@@ -27,7 +27,7 @@ except KeyboardInterrupt:
 ```
 
 ### Sync
-```
+```python
 from wifi import SyncWifiManager
 
 sync_manager = SyncWifiManager("Your_SSID", "Your_Password")
