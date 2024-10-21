@@ -1,4 +1,5 @@
 # Author: Ben Neigher
+# Repo: https://github.com/bneigher/micropython-wifi-manger
 # License: MIT
 # Version: 1.0.0
 # Description: Networking connectivity manager for MicroPython.
