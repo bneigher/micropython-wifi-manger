@@ -141,6 +141,7 @@ class WifiManager:
 
                 # Parse POST data (SSID and password)
                 post_str = post_data.decode()
+                post_str = url_decode(post_str)
                 match = ure.search(r'id=([^&]*)&password=(.*)', post_str)
                 if match:
                     ssid = match.group(1)
@@ -396,3 +397,9 @@ class SyncWifiManager:
             loop.run_until_complete(self.wifi_manager.start_captive_portal())
         finally:
             loop.close()  # Close the event loop
+            
+def url_decode(input_str):
+    """Decode URL-encoded string (replace '+' with ' ' and decode hex codes)"""
+    input_str = input_str.replace('+', ' ')
+    hex_codes = ure.compile(r'%([0-9A-Fa-f]{2})')
+    return hex_codes.sub(lambda match: chr(int(match.group(1), 16)), input_str)
